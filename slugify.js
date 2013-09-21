@@ -1,3 +1,12 @@
+/* This script was taken as is from Django 1.5,
+ * (and is as such under the BSD license).
+ * 
+ * The only addition is the line
+ * 
+ * exports.slugify = slugify;
+ * 
+ * which makes it work as a module in PhantomJS */
+
 /*
 Copyright (c) Django Software Foundation and individual contributors.
 All rights reserved.
@@ -151,7 +160,7 @@ var downcode = function(slug) {
  * @param  {Integer} num_chars output max length
  * @return {String}            urlified string
  */
-module.exports = function(s, num_chars) {
+var slugify = function(s, num_chars) {
   // changes, e.g., "Petty theft" to "petty_theft"
   // remove all these words from the string before urlifying
   s = downcode(s)
@@ -164,3 +173,5 @@ module.exports = function(s, num_chars) {
     ? s.substring(0, num_chars).replace(/-$/, '') // trim to first num_chars chars
     : s
 }
+
+exports.slugify = slugify;

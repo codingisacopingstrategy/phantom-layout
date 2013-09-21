@@ -1,7 +1,10 @@
 Quick & dirty example of using phantomjs to scrape webpages,
 change the layout, and print them to pdf’s.
 
-Use something like pdftk to collate them together.
+Usage, from the command line:
 
-Usage: phantomjs rasterise.js
+    phantomjs render_courses_list.js
 
+Use something like pdftk to collate them together into one pdf:
+
+    pdftk *.pdf cat output overzicht-ects-universiteit-leiden-eric-schrijver.pdf
